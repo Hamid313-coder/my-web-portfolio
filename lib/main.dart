@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:my_portfolio/routes/app_routes.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 void main() {
-  return runApp(const PortfolioApp());
+  return runApp(const ProviderScope(child: PortfolioApp()));
 }
 
 class PortfolioApp extends StatelessWidget {

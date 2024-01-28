@@ -12,7 +12,7 @@ final navigationItemsProvider = Provider<List<LeftNavigationItem>>((ref) {
   return ref.read(navigationRepositoryProvider).getDefaultNavItems();
 });
 
-final navigationViewModelProvider =
+final navigationItemsViewModelProvider =
     StateNotifierProvider<LeftNavigationViewModel, List<LeftNavigationItem>>(
   (ref) {
     final items = ref.read(navigationItemsProvider);

@@ -17,7 +17,8 @@ class LeftNavigationViewModel extends StateNotifier<List<LeftNavigationItem>> {
       GoRouter.of(Utils.tabNav.currentContext!).go(item.route);
     }
     state = [
-      for (final element in state) item.copyWith(isSelected: element == item),
+      for (final element in state)
+        element.copyWith(isSelected: element == item),
     ];
   }
 }

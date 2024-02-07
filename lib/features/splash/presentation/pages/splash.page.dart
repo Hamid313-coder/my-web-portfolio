@@ -8,12 +8,12 @@ import 'package:my_portfolio/styles/colors.dart';
 class SplashPage extends StatelessWidget {
   const SplashPage({super.key});
 
-  static const String routeName = '/';
+  static const String route = '/';
 
   @override
   Widget build(BuildContext context) {
     Future.delayed(const Duration(seconds: 2), () {
-      GoRouter.of(Utils.mainNav.currentContext!).go(WelcomePage.routeName);
+      GoRouter.of(Utils.mainNav.currentContext!).go(WelcomePage.route);
     });
 
     return const Scaffold(

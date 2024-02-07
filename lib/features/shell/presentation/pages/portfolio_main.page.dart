@@ -5,7 +5,7 @@ import 'package:my_portfolio/styles/colors.dart';
 
 class PortfolioMainPage extends StatelessWidget {
   const PortfolioMainPage({required this.child, super.key});
-  static const String routeName = '/main';
+  static const String route = '/main';
 
   final Widget child;
   @override

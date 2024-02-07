@@ -1,5 +1,9 @@
+import 'package:my_portfolio/features/github/presentation/pages/github.page.dart';
+import 'package:my_portfolio/features/linkedin/presentation/pages/linkedin.page.dart';
 import 'package:my_portfolio/features/navigation/data/models/left_navigation_item.dart';
 import 'package:my_portfolio/features/navigation/data/repositories/inavigation.repository.dart';
+import 'package:my_portfolio/features/twitter/presentation/pages/twitter.page.dart';
+import 'package:my_portfolio/features/web/presentation/pages/web.page.dart';
 import 'package:my_portfolio/features/welcome/presentation/pages/welcom.page.dart';
 import 'package:my_portfolio/styles/personal_portfolio_icons.dart';
 
@@ -10,27 +14,27 @@ class MockNavigationRepository implements INavigationRepository {
       LeftNavigationItem(
           icon: PersonalPortfolioIcons.user,
           label: 'My Profile',
-          route: WelcomePage.routeName,
+          route: WelcomePage.route,
           isSelected: true),
       LeftNavigationItem(
           icon: PersonalPortfolioIcons.twitter,
           label: 'Twitter',
-          route: '',
+          route: TwitterPage.route,
           isSelected: false),
       LeftNavigationItem(
           icon: PersonalPortfolioIcons.linkedin,
           label: 'LinkedIn',
-          route: '',
+          route: LinkedInPage.route,
           isSelected: false),
       LeftNavigationItem(
           icon: PersonalPortfolioIcons.web,
           label: 'Web',
-          route: '',
+          route: WebPage.route,
           isSelected: false),
       LeftNavigationItem(
           icon: PersonalPortfolioIcons.github,
           label: 'Github',
-          route: '',
+          route: GithubPage.route,
           isSelected: false),
     ];
   }

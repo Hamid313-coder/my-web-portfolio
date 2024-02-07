@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class WelcomePage extends StatelessWidget {
   const WelcomePage({super.key});
-  static const routeName = '/welcome-page';
+  static const route = '/welcome-page';
 
   @override
   Widget build(BuildContext context) {

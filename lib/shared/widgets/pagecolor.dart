@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:my_portfolio/shared/providers/share_provider.dart';
+import 'package:my_portfolio/shared/providers/share_providers.dart';
 
 class PageColor extends ConsumerWidget {
   const PageColor({super.key});

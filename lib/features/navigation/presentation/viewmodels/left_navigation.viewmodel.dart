@@ -2,7 +2,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:my_portfolio/features/navigation/data/models/left_navigation_item.dart';
 import 'package:my_portfolio/helpers/utils.dart';
-import 'package:my_portfolio/shared/providers/share_provider.dart';
+import 'package:my_portfolio/shared/providers/share_providers.dart';
 import 'package:my_portfolio/styles/colors.dart';
 
 class LeftNavigationViewModel extends StateNotifier<List<LeftNavigationItem>> {

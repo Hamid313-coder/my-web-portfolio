@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:my_portfolio/features/welcome/presentation/providers/welcom_page.providers.dart';
+import 'package:my_portfolio/features/welcome/presentation/widgets/greeting_label.dart';
+import 'package:my_portfolio/shared/widgets/error_notification.dart';
 import 'package:my_portfolio/styles/colors.dart';
 import 'package:my_portfolio/styles/personal_portfolio_icons.dart';
 
@@ -15,7 +17,8 @@ class WelcomePage extends ConsumerWidget {
         loading: () => const Center(
             child: CircularProgressIndicator(
                 valueColor: AlwaysStoppedAnimation(Colors.white))),
-        error: (error, stackTrace) => const Center(child: Text('error')),
+        error: (error, stackTrace) =>
+            ErrorNotification(message: error.toString()),
         data: (welcomeData) {
           return Center(
               child: Column(
@@ -41,13 +44,7 @@ class WelcomePage extends ConsumerWidget {
                       const Icon(PersonalPortfolioIcons.wave,
                           size: 130, color: PersonalPortfolioColors.welcomeIcon)
                     ]),
-                Text(
-                  welcomeData.greetings[0],
-                  style: const TextStyle(
-                      fontSize: 100,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white),
-                ),
+                const GreetingsLabel(),
                 Text.rich(
                   TextSpan(
                       style:

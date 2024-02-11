@@ -1,5 +1,5 @@
 import 'package:go_router/go_router.dart';
-import 'package:my_portfolio/features/error/presentation/error.page.dart';
+import 'package:my_portfolio/features/error/presentation/pages/error.page.dart';
 import 'package:my_portfolio/features/github/presentation/pages/github.page.dart';
 import 'package:my_portfolio/features/linkedin/presentation/pages/linkedin.page.dart';
 import 'package:my_portfolio/features/shell/presentation/pages/portfolio_main.page.dart';

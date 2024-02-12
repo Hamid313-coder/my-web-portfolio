@@ -5,6 +5,7 @@ import 'package:my_portfolio/features/welcome/presentation/widgets/greeting_labe
 import 'package:my_portfolio/shared/widgets/error_notification.dart';
 import 'package:my_portfolio/styles/colors.dart';
 import 'package:my_portfolio/styles/personal_portfolio_icons.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 
 class WelcomePage extends ConsumerWidget {
   const WelcomePage({super.key});
@@ -25,65 +26,83 @@ class WelcomePage extends ConsumerWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                Row(
-                    mainAxisSize: MainAxisSize.min,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Container(
-                          width: 140,
-                          height: 140,
-                          decoration: BoxDecoration(
-                              border: Border.all(
-                                  color: PersonalPortfolioColors.welcomePrimary,
-                                  width: 8),
-                              shape: BoxShape.circle,
-                              image: DecorationImage(
-                                  image: NetworkImage(welcomeData.imgPath),
-                                  fit: BoxFit.cover))),
-                      const SizedBox(width: 40),
-                      const Icon(PersonalPortfolioIcons.wave,
-                          size: 130, color: PersonalPortfolioColors.welcomeIcon)
-                    ]),
-                const GreetingsLabel(),
-                Text.rich(
-                  TextSpan(
-                      style:
-                          const TextStyle(fontSize: 100, color: Colors.white),
-                      children: [
-                        const TextSpan(text: "I'm "),
-                        TextSpan(
-                            text: welcomeData.name,
-                            style:
-                                const TextStyle(fontWeight: FontWeight.bold)),
-                      ]),
-                  textAlign: TextAlign.center,
-                ),
-                Row(
-                    mainAxisSize: MainAxisSize.min,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const Icon(PersonalPortfolioIcons.badge,
-                          color: PersonalPortfolioColors.welcomePrimary,
-                          size: 80),
-                      const SizedBox(width: 20),
-                      Column(
+                    Row(
                         mainAxisSize: MainAxisSize.min,
-                        crossAxisAlignment: CrossAxisAlignment.center,
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text(welcomeData.title,
-                              textAlign: TextAlign.center,
-                              style: const TextStyle(
-                                  fontSize: 40, color: Colors.white)),
-                          Text(welcomeData.subTitle,
-                              textAlign: TextAlign.center,
-                              style: const TextStyle(
-                                  fontSize: 40, color: Colors.white)),
-                        ],
+                          Container(
+                              width: 140,
+                              height: 140,
+                              decoration: BoxDecoration(
+                                  border: Border.all(
+                                      color: PersonalPortfolioColors
+                                          .welcomePrimary,
+                                      width: 8),
+                                  shape: BoxShape.circle,
+                                  image: DecorationImage(
+                                      image: NetworkImage(welcomeData.imgPath),
+                                      fit: BoxFit.cover))),
+                          const SizedBox(width: 40),
+                          const Icon(PersonalPortfolioIcons.wave,
+                                  size: 130,
+                                  color: PersonalPortfolioColors.welcomeIcon)
+                              .animate(onPlay: (controller) {
+                            controller.repeat(reverse: true);
+                          }).rotate(
+                            begin: -0.25,
+                            end: 0,
+                            duration: 0.5.seconds,
+                            curve: Curves.easeInOut,
+                          )
+                        ]),
+                    const GreetingsLabel(),
+                    Text.rich(
+                      TextSpan(
+                          style: const TextStyle(
+                              fontSize: 100, color: Colors.white),
+                          children: [
+                            const TextSpan(text: "I'm "),
+                            TextSpan(
+                                text: welcomeData.name,
+                                style: const TextStyle(
+                                    fontWeight: FontWeight.bold)),
+                          ]),
+                      textAlign: TextAlign.center,
+                    ),
+                    Row(
+                        mainAxisSize: MainAxisSize.min,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const Icon(PersonalPortfolioIcons.badge,
+                              color: PersonalPortfolioColors.welcomePrimary,
+                              size: 80),
+                          const SizedBox(width: 20),
+                          Column(
+                            mainAxisSize: MainAxisSize.min,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(welcomeData.title,
+                                  textAlign: TextAlign.center,
+                                  style: const TextStyle(
+                                      fontSize: 40, color: Colors.white)),
+                              Text(welcomeData.subTitle,
+                                  textAlign: TextAlign.center,
+                                  style: const TextStyle(
+                                      fontSize: 40, color: Colors.white)),
+                            ],
+                          )
+                        ])
+                  ]
+                      .animate(interval: 100.ms)
+                      .slideY(
+                        begin: 1,
+                        end: 0,
+                        curve: Curves.easeInOut,
+                        duration: 0.5.seconds,
                       )
-                    ])
-              ]));
+                      .fadeIn()));
         });
   }
 }

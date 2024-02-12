@@ -4,6 +4,7 @@ import 'package:my_portfolio/features/twitter/presentation/providers/twitter.pro
 import 'package:my_portfolio/shared/widgets/error_notification.dart';
 import 'package:my_portfolio/styles/colors.dart';
 import 'package:my_portfolio/styles/personal_portfolio_icons.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class TwitterPage extends ConsumerWidget {
   const TwitterPage({super.key});
@@ -26,27 +27,27 @@ class TwitterPage extends ConsumerWidget {
               children: [
                 const Icon(PersonalPortfolioIcons.twitter,
                     size: 80, color: PersonalPortfolioColors.twitterIcon),
-                const Text('Follow me',
-                    style: TextStyle(
+                Text(twitterData.title,
+                    style: const TextStyle(
                         color: Colors.white,
                         fontSize: 100,
                         fontWeight: FontWeight.bold)),
-                const Text('on Twitter',
-                    style: TextStyle(
+                Text(twitterData.subtitle,
+                    style: const TextStyle(
                         color: PersonalPortfolioColors.twitterIcon,
                         fontSize: 40)),
                 const SizedBox(height: 6),
                 GestureDetector(
-                  onTap: () => print('salam'),
+                  onTap: () => launchUrl(Uri.parse(twitterData.url)),
                   child: Container(
                     padding:
                         const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(35),
                         color: Colors.white.withOpacity(0.1)),
-                    child: const Text(
-                      '@hamidhussainy1',
-                      style: TextStyle(fontSize: 20, color: Colors.white),
+                    child: Text(
+                      twitterData.handle,
+                      style: const TextStyle(fontSize: 20, color: Colors.white),
                     ),
                   ),
                 )

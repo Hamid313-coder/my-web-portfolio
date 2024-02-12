@@ -11,7 +11,7 @@ class MockTwitterRepository implements ITwitterRepository {
           title: 'Follow me',
           subtitle: 'on Twitter',
           handle: '@hamidhussainy1',
-          url: 'https://twitter/hamidhussainy1');
+          url: 'https://twitter.com/hamidhussainy1');
     });
   }
 }

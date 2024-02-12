@@ -25,7 +25,7 @@ class WebPage extends ConsumerWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Icon(webData.icon,
-                    size: 80, color: PersonalPortfolioColors.githubIcon),
+                    size: 80, color: PersonalPortfolioColors.webIcon),
                 Text(webData.title,
                     textAlign: TextAlign.center,
                     style: const TextStyle(
@@ -44,8 +44,7 @@ class WebPage extends ConsumerWidget {
                     child: Text(
                       webData.handle,
                       style: const TextStyle(
-                          fontSize: 20,
-                          color: PersonalPortfolioColors.githubIcon),
+                          fontSize: 20, color: PersonalPortfolioColors.webIcon),
                     ),
                   ),
                 )

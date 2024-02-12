@@ -25,7 +25,7 @@ class TwitterPage extends ConsumerWidget {
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                const Icon(PersonalPortfolioIcons.twitter,
+                Icon(twitterData.icon,
                     size: 80, color: PersonalPortfolioColors.twitterIcon),
                 Text(twitterData.title,
                     style: const TextStyle(

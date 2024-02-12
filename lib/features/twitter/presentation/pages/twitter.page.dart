@@ -3,7 +3,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:my_portfolio/features/twitter/presentation/providers/twitter.providers.dart';
 import 'package:my_portfolio/shared/widgets/error_notification.dart';
 import 'package:my_portfolio/styles/colors.dart';
-import 'package:my_portfolio/styles/personal_portfolio_icons.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class TwitterPage extends ConsumerWidget {

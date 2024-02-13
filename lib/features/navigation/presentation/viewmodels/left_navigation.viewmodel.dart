@@ -20,6 +20,7 @@ class LeftNavigationViewModel extends StateNotifier<List<LeftNavigationItem>> {
     }
     ref.read(pageColorProvider.notifier).state =
         PersonalPortfolioColors.pageColor[item.route]!;
+    ref.read(bgPageRouteProvider.notifier).state = item.route;
     state = [
       for (final element in state)
         element.copyWith(isSelected: element == item),

@@ -6,3 +6,7 @@ import 'package:my_portfolio/styles/colors.dart';
 final pageColorProvider = StateProvider<LinearGradient>((ref) {
   return PersonalPortfolioColors.pageColor[WelcomePage.route]!;
 });
+
+final bgPageRouteProvider = StateProvider<String>((ref) {
+  return WelcomePage.route;
+});

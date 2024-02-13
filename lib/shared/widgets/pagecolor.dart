@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:my_portfolio/shared/providers/share_providers.dart';
 
@@ -8,7 +9,9 @@ class PageColor extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final pageGradient = ref.watch(pageColorProvider);
-    return Container(
+    return AnimatedContainer(
+      duration: 1.seconds,
+      curve: Curves.easeInOut,
       decoration: BoxDecoration(
         gradient: pageGradient,
       ),

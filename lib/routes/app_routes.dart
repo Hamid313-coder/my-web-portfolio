@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:my_portfolio/features/error/presentation/pages/error.page.dart';
 import 'package:my_portfolio/features/github/presentation/pages/github.page.dart';
@@ -31,32 +32,53 @@ class AppRoutes {
                   parentNavigatorKey: Utils.tabNav,
                   path: WelcomePage.route,
                   pageBuilder: (context, state) {
-                    return const NoTransitionPage(child: WelcomePage());
+                    return AppRoutes.pageTransition(
+                        key: state.pageKey, page: const WelcomePage());
                   }),
               GoRoute(
                   parentNavigatorKey: Utils.tabNav,
                   path: TwitterPage.route,
                   pageBuilder: (context, state) {
-                    return const NoTransitionPage(child: TwitterPage());
+                    return AppRoutes.pageTransition(
+                        key: state.pageKey, page: const TwitterPage());
                   }),
               GoRoute(
                   parentNavigatorKey: Utils.tabNav,
                   path: GithubPage.route,
                   pageBuilder: (context, state) {
-                    return const NoTransitionPage(child: GithubPage());
+                    return AppRoutes.pageTransition(
+                        key: state.pageKey, page: const GithubPage());
                   }),
               GoRoute(
                   parentNavigatorKey: Utils.tabNav,
                   path: LinkedInPage.route,
                   pageBuilder: (context, state) {
-                    return const NoTransitionPage(child: LinkedInPage());
+                    return AppRoutes.pageTransition(
+                        key: state.pageKey, page: const LinkedInPage());
                   }),
               GoRoute(
                   parentNavigatorKey: Utils.tabNav,
                   path: WebPage.route,
                   pageBuilder: (context, state) {
-                    return const NoTransitionPage(child: WebPage());
+                    return AppRoutes.pageTransition(
+                        key: state.pageKey, page: const WebPage());
                   }),
             ])
       ]);
+
+  static CustomTransitionPage pageTransition({
+    required ValueKey key,
+    required Widget page,
+  }) {
+    return CustomTransitionPage(
+      key: key,
+      child: page,
+      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+        return FadeTransition(
+          opacity: CurveTween(curve: Curves.easeInOut).animate(animation),
+          child: child,
+        );
+      },
+    );
+  }
 }

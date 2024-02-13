@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:my_portfolio/features/github/presentation/providers/github.providers.dart';
 import 'package:my_portfolio/shared/widgets/error_notification.dart';
@@ -25,7 +26,14 @@ class GithubPage extends ConsumerWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Icon(githubData.icon,
-                    size: 80, color: PersonalPortfolioColors.githubIcon),
+                        size: 80, color: PersonalPortfolioColors.githubIcon)
+                    .animate(onPlay: (controller) {
+                  controller.repeat(reverse: true);
+                }).scaleXY(
+                        duration: 1.seconds,
+                        begin: 0.8,
+                        end: 1,
+                        curve: Curves.easeInOut),
                 Text(githubData.title,
                     textAlign: TextAlign.center,
                     style: const TextStyle(
@@ -49,7 +57,15 @@ class GithubPage extends ConsumerWidget {
                     ),
                   ),
                 )
-              ],
+              ]
+                  .animate(interval: 100.ms)
+                  .slideY(
+                    begin: 1,
+                    end: 0,
+                    curve: Curves.easeInOut,
+                    duration: 0.5.seconds,
+                  )
+                  .fadeIn(),
             )));
   }
 }

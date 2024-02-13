@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:my_portfolio/features/twitter/presentation/providers/twitter.providers.dart';
 import 'package:my_portfolio/shared/widgets/error_notification.dart';
@@ -25,7 +26,20 @@ class TwitterPage extends ConsumerWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Icon(twitterData.icon,
-                    size: 80, color: PersonalPortfolioColors.twitterIcon),
+                        size: 80, color: PersonalPortfolioColors.twitterIcon)
+                    .animate(onPlay: (controller) {
+                      controller.repeat(reverse: true);
+                    })
+                    .scaleXY(
+                        duration: 0.8.seconds,
+                        begin: 0.8,
+                        end: 1,
+                        curve: Curves.easeInOut)
+                    .slideY(
+                        duration: 0.8.seconds,
+                        begin: -0.2,
+                        end: 0,
+                        curve: Curves.easeInOut),
                 Text(twitterData.title,
                     style: const TextStyle(
                         color: Colors.white,
@@ -50,7 +64,15 @@ class TwitterPage extends ConsumerWidget {
                     ),
                   ),
                 )
-              ],
+              ]
+                  .animate(interval: 80.ms)
+                  .slideY(
+                    begin: 1,
+                    end: 0,
+                    curve: Curves.easeInOut,
+                    duration: 0.5.seconds,
+                  )
+                  .fadeIn(),
             )));
   }
 }

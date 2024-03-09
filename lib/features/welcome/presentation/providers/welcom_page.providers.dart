@@ -1,11 +1,11 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:my_portfolio/features/welcome/data/repositories/iwelcome.repository.dart';
-import 'package:my_portfolio/features/welcome/data/repositories/mockwelcome.repository.dart';
+import 'package:my_portfolio/features/welcome/data/repositories/welcome.repository.dart';
 import 'package:my_portfolio/features/welcome/presentation/viewmodels/greeting_label.viewmodel.dart';
 import 'package:my_portfolio/features/welcome/presentation/viewmodels/welcome.viewmodel.dart';
 
 final welcomeRepositoryProvider = Provider<IWelcomeRepository>((ref) {
-  return MockWelcomRepository();
+  return WelcomeRepository(ref);
 });
 
 final welcomeViewModelProvider = Provider<WelcomePageVieModel>((ref) {

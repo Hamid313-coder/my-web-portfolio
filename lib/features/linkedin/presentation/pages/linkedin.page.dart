@@ -50,7 +50,7 @@ class LinkedInPage extends ConsumerWidget {
                         borderRadius: BorderRadius.circular(35),
                         color: Colors.white.withOpacity(0.1)),
                     child: Text(
-                      linkedInData.handle,
+                      linkedInData.subtitle,
                       style: const TextStyle(
                           fontSize: 20,
                           color: PersonalPortfolioColors.linkedInIcon),

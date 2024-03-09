@@ -9,7 +9,7 @@ class MockWebRepository implements IWebRepository {
       return WebPageModel(
           icon: PersonalPortfolioIcons.web,
           title: 'Visit\nMy Page',
-          handle: 'on Web',
+          subtitle: 'on Web',
           url: 'https://github.com/Hamid313-coder');
     });
   }

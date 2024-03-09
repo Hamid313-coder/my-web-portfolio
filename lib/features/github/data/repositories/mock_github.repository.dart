@@ -9,7 +9,7 @@ class MockGithubRepository implements IGithubRepository {
       return GithubPageModel(
           icon: PersonalPortfolioIcons.github,
           title: 'Check out\nMy Repos',
-          handle: 'on Github',
+          subtitle: 'on Github',
           url: 'https://github.com/Hamid313-coder');
     });
   }

@@ -1,10 +1,10 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:my_portfolio/features/twitter/data/repositories/itwitter.repository.dart';
-import 'package:my_portfolio/features/twitter/data/repositories/mock_twitter.repository.dart';
+import 'package:my_portfolio/features/twitter/data/repositories/twitter.repository.dart';
 import 'package:my_portfolio/features/twitter/presentation/viewmodels/twitter.viewmodel.dart';
 
 final twitterRepositoryProvider = Provider<ITwitterRepository>((ref) {
-  return MockTwitterRepository();
+  return TwitterRepository(ref);
 });
 
 final twitterViewModelProvider = Provider<TwitterViewModel>((ref) {

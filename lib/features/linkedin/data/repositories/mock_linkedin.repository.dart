@@ -9,7 +9,7 @@ class MockLinkedInRepository implements ILinkedInRepository {
       return LinkedInPageModel(
           icon: PersonalPortfolioIcons.linkedin,
           title: 'Let\'s\nConnect',
-          handle: 'on LinkedIn',
+          subtitle: 'on LinkedIn',
           url: 'https://www.linkedin.com/in/hamidullah-hussainy-a8955121a');
     });
   }

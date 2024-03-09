@@ -1,10 +1,10 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:my_portfolio/features/linkedin/data/repositories/ilinkedin.repository.dart';
-import 'package:my_portfolio/features/linkedin/data/repositories/mock_linkedin.repository.dart';
+import 'package:my_portfolio/features/linkedin/data/repositories/linkedin.respository.dart';
 import 'package:my_portfolio/features/linkedin/presentation/viewmodels/linkedin.viewmodel.dart';
 
 final linkedInRepositoryProvider = Provider<ILinkedInRepository>((ref) {
-  return MockLinkedInRepository();
+  return LinkedInRepository(ref);
 });
 
 final linkedInViewModelProvider = Provider((ref) {

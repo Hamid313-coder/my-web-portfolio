@@ -16,7 +16,7 @@ class WebPageModel {
   factory WebPageModel.fromDatabase(Map<String, dynamic> doc) {
     return WebPageModel(
       icon: PersonalPortfolioIcons.iconFromName(doc['icon']),
-      title: doc['title'],
+      title: (doc['title'] as String).replaceAll('\\n', '\n'),
       subtitle: doc['subtitle'],
       url: doc['url'],
     );

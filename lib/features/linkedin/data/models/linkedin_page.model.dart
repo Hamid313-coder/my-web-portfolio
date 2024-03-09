@@ -16,7 +16,7 @@ class LinkedInPageModel {
   factory LinkedInPageModel.fromDatabase(Map<String, dynamic> doc) {
     return LinkedInPageModel(
       icon: PersonalPortfolioIcons.iconFromName(doc['icon']),
-      title: doc['title'],
+      title: (doc['title'] as String).replaceAll('\\n', '\n'),
       subtitle: doc['subtitle'],
       url: doc['url'],
     );

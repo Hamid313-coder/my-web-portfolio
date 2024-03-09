@@ -13,7 +13,7 @@ class LinkedInRepository extends ILinkedInRepository {
     return ref.read(dbProvider).getPageDataFromDB(
           LinkedInPageModel.fromDatabase,
           DatabaseCollections.pageContent.name,
-          DatabaseDocs.linkedInPage.name,
+          DatabaseDocs.linkedinPage.name,
         );
   }
 }

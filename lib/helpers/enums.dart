@@ -15,3 +15,9 @@ enum DatabaseDocs {
   githubPage,
   webPage,
 }
+
+enum DeviceType {
+  mobile,
+  tablet,
+  desktop,
+}

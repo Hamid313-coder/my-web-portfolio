@@ -26,7 +26,7 @@ class WelcomePageResponsiveConfig {
     required this.headerGap,
     required this.subtitleGap,
   });
-  static Map<DeviceType, WelcomePageResponsiveConfig> responseUI = {
+  static Map<DeviceType, WelcomePageResponsiveConfig> responsiveUI = {
     DeviceType.mobile: WelcomePageResponsiveConfig(
         titleSize: 50,
         subTitleSize: 20,

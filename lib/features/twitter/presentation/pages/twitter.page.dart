@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:my_portfolio/features/twitter/presentation/providers/twitter.providers.dart';
+import 'package:my_portfolio/features/twitter/presentation/responsiveness/twitter_page_responsive.config.dart';
+import 'package:my_portfolio/helpers/responsive_ui_helper.dart';
 import 'package:my_portfolio/shared/widgets/error_notification.dart';
 import 'package:my_portfolio/styles/colors.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -13,6 +15,8 @@ class TwitterPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final uiConfig = TwitterPageResponsiveConfig
+        .responsiveUI[ResponsiveUIHelper.getDeviceType(context)]!;
     final twitterDataAsync = ref.watch(twitterProvider);
     return twitterDataAsync.when(
         loading: () => const Center(
@@ -26,7 +30,8 @@ class TwitterPage extends ConsumerWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Icon(twitterData.icon,
-                        size: 80, color: PersonalPortfolioColors.twitterIcon)
+                        size: uiConfig.iconSize,
+                        color: PersonalPortfolioColors.twitterIcon)
                     .animate(onPlay: (controller) {
                       controller.repeat(reverse: true);
                     })
@@ -41,26 +46,31 @@ class TwitterPage extends ConsumerWidget {
                         end: 0,
                         curve: Curves.easeInOut),
                 Text(twitterData.title,
-                    style: const TextStyle(
+                    style: TextStyle(
                         color: Colors.white,
-                        fontSize: 100,
+                        fontSize: uiConfig.titleSize,
                         fontWeight: FontWeight.bold)),
                 Text(twitterData.subtitle,
-                    style: const TextStyle(
+                    style: TextStyle(
                         color: PersonalPortfolioColors.twitterIcon,
-                        fontSize: 40)),
+                        fontSize: uiConfig.subtitleSize)),
                 const SizedBox(height: 6),
-                GestureDetector(
-                  onTap: () => launchUrl(Uri.parse(twitterData.url)),
-                  child: Container(
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(35),
-                        color: Colors.white.withOpacity(0.1)),
-                    child: Text(
-                      twitterData.handle,
-                      style: const TextStyle(fontSize: 20, color: Colors.white),
+                MouseRegion(
+                  cursor: SystemMouseCursors.click,
+                  child: GestureDetector(
+                    onTap: () => launchUrl(Uri.parse(twitterData.url)),
+                    child: Container(
+                      margin: uiConfig.buttonMargin,
+                      padding: uiConfig.buttonPadding,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(35),
+                          color: Colors.white.withOpacity(0.1)),
+                      child: Text(
+                        twitterData.handle,
+                        style: TextStyle(
+                            fontSize: uiConfig.buttonLabelSize,
+                            color: Colors.white),
+                      ),
                     ),
                   ),
                 )

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:my_portfolio/features/linkedin/presentation/providers/linkedin.providers.dart';
+import 'package:my_portfolio/features/linkedin/presentation/responsiveness/linkedin_page_responsive.config.dart';
+import 'package:my_portfolio/helpers/responsive_ui_helper.dart';
 import 'package:my_portfolio/shared/widgets/error_notification.dart';
 import 'package:my_portfolio/styles/colors.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -13,6 +15,8 @@ class LinkedInPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final uiConfig = LinkedInPageResponsiveConfig
+        .responsiveUI[ResponsiveUIHelper.getDeviceType(context)]!;
     final linkedInAsyncData = ref.watch(linkedInProvider);
     return linkedInAsyncData.when(
         loading: () => const Center(
@@ -26,7 +30,8 @@ class LinkedInPage extends ConsumerWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Icon(linkedInData.icon,
-                        size: 80, color: PersonalPortfolioColors.linkedInIcon)
+                        size: uiConfig.iconSize,
+                        color: PersonalPortfolioColors.linkedInIcon)
                     .animate(onPlay: (controller) {
                   controller.repeat(reverse: true);
                 }).scaleXY(
@@ -36,24 +41,27 @@ class LinkedInPage extends ConsumerWidget {
                         curve: Curves.easeInOut),
                 Text(linkedInData.title,
                     textAlign: TextAlign.center,
-                    style: const TextStyle(
+                    style: TextStyle(
                         color: Colors.white,
-                        fontSize: 100,
+                        fontSize: uiConfig.titleSize,
                         fontWeight: FontWeight.bold)),
                 const SizedBox(height: 10),
-                GestureDetector(
-                  onTap: () => launchUrl(Uri.parse(linkedInData.url)),
-                  child: Container(
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(35),
-                        color: Colors.white.withOpacity(0.1)),
-                    child: Text(
-                      linkedInData.subtitle,
-                      style: const TextStyle(
-                          fontSize: 20,
-                          color: PersonalPortfolioColors.linkedInIcon),
+                MouseRegion(
+                  cursor: SystemMouseCursors.click,
+                  child: GestureDetector(
+                    onTap: () => launchUrl(Uri.parse(linkedInData.url)),
+                    child: Container(
+                      margin: uiConfig.buttonMargin,
+                      padding: uiConfig.buttonPadding,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(35),
+                          color: Colors.white.withOpacity(0.1)),
+                      child: Text(
+                        linkedInData.subtitle,
+                        style: TextStyle(
+                            fontSize: uiConfig.buttonLabelSize,
+                            color: PersonalPortfolioColors.linkedInIcon),
+                      ),
                     ),
                   ),
                 )

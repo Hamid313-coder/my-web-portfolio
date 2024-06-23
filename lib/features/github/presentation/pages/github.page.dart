@@ -15,8 +15,7 @@ class GithubPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final uiConfig = GithubPageResponsiveConfig
-        .responsiveUI[ResponsiveUIHelper.getDeviceType(context)]!;
+    final uiConfig = context.uiConfig<GithubPageResponsiveConfig>();
     final githubAsyncData = ref.watch(githubProvider);
     return githubAsyncData.when(
         loading: () => const Center(

@@ -15,8 +15,7 @@ class WelcomePage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    var uiConfig = WelcomePageResponsiveConfig
-        .responsiveUI[ResponsiveUIHelper.getDeviceType(context)]!;
+    final uiConfig = context.uiConfig<WelcomePageResponsiveConfig>();
     final welcomeDataAsync = ref.watch(welcomeProvider);
     return welcomeDataAsync.when(
         loading: () => const Center(

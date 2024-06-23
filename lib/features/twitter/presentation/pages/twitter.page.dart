@@ -15,8 +15,7 @@ class TwitterPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final uiConfig = TwitterPageResponsiveConfig
-        .responsiveUI[ResponsiveUIHelper.getDeviceType(context)]!;
+    final uiConfig = context.uiConfig<TwitterPageResponsiveConfig>();
     final twitterDataAsync = ref.watch(twitterProvider);
     return twitterDataAsync.when(
         loading: () => const Center(

@@ -1,8 +1,9 @@
 import 'package:flutter/widgets.dart';
 import 'package:my_portfolio/helpers/enums.dart';
+import 'package:my_portfolio/shared/models/iresponsive.config.dart';
 import 'package:my_portfolio/styles/styles.dart';
 
-class WelcomePageResponsiveConfig {
+class WelcomePageResponsiveConfig implements IResponsiveConfig {
   final double titleSize;
   final double subTitleSize;
   final double badgeSize;

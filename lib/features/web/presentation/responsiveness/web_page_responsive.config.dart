@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:my_portfolio/helpers/enums.dart';
+import 'package:my_portfolio/shared/models/iresponsive.config.dart';
 
-class WebPageResponsiveConfig {
+class WebPageResponsiveConfig implements IResponsiveConfig {
   final double iconSize;
   final double titleSize;
   final double buttonLabelSize;

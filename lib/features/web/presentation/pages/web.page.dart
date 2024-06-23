@@ -15,8 +15,7 @@ class WebPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final uiConfig = WebPageResponsiveConfig
-        .responsiveUI[ResponsiveUIHelper.getDeviceType(context)]!;
+    final uiConfig = context.uiConfig<WebPageResponsiveConfig>();
     final webAsyncData = ref.watch(webProvider);
     return webAsyncData.when(
         loading: () => const Center(

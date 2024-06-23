@@ -27,8 +27,7 @@ class _LeftNavigationState extends ConsumerState<LeftNavigation> {
 
   @override
   Widget build(BuildContext context) {
-    var uiConfig = NavigationResponsiveConfig
-        .responsiveUI[ResponsiveUIHelper.getDeviceType(context)]!;
+    var uiConfig = context.uiConfig<NavigationResponsiveConfig>();
 
     var navItems = ref.watch(navigationItemsViewModelProvider);
 

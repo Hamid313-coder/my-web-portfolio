@@ -15,8 +15,7 @@ class LinkedInPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final uiConfig = LinkedInPageResponsiveConfig
-        .responsiveUI[ResponsiveUIHelper.getDeviceType(context)]!;
+    final uiConfig = context.uiConfig<LinkedInPageResponsiveConfig>();
     final linkedInAsyncData = ref.watch(linkedInProvider);
     return linkedInAsyncData.when(
         loading: () => const Center(

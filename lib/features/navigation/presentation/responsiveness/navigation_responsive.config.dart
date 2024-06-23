@@ -1,6 +1,7 @@
 import 'package:my_portfolio/helpers/enums.dart';
+import 'package:my_portfolio/shared/models/iresponsive.config.dart';
 
-class NavigationResponsiveConfig {
+class NavigationResponsiveConfig implements IResponsiveConfig {
   final bool showSideBar;
 
   NavigationResponsiveConfig({required this.showSideBar});
